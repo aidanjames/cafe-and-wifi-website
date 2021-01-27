@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Add cafe{% endblock %}
+
+{% block content %}
+
+  <h4>Add new cafe</h4>
+  {{ wtf.quick_form(form, form_type="horizontal", horizontal_columns=('lg',2,4), novalidate=True, button_map={"submit": "primary"}) }}
+
+{% endblock %}

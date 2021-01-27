@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}Cafes{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  {% for cafe in cafes %}
+
+  <div class="card mx-auto">
+    <img class="card-img-top" src="{{ cafe.img_url }}"
+         alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{ cafe.name }}</h5>
+      <p class="card-text">
+        📍 {{ cafe.location }}
+      </p>
+      <ul class="list-group listy">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Has sockets
+          <span class="">
+            {% if cafe.has_sockets %}
+              ✅
+            {% else %}
+              ❌
+            {% endif %}
+          </span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Has toilet
+          <span class="">
+            {% if cafe.has_toilet %}
+              ✅
+            {% else %}
+              ❌
+            {% endif %}
+          </span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Has wifi
+          <span class="">
+            {% if cafe.has_wifi %}
+              ✅
+            {% else %}
+              ❌
+            {% endif %}
+          </span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Can take calls
+          <span class="">
+            {% if cafe.can_take_calls %}
+              ✅
+            {% else %}
+              ❌
+            {% endif %}
+          </span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Seats
+          <span class="">{{ cafe.seats }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Coffee price
+          <span class="">{{ cafe.coffee_price }}</span>
+        </li>
+      </ul>
+      <a href="{{ cafe.map_url }}" target="_blank" class="btn btn-primary">View location</a>
+    </div>
+  </div>
+
+  {% endfor %}
+
+</div>
+
+{% endblock %}
